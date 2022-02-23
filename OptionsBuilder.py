@@ -6,12 +6,15 @@ import csv
 import itertools
 import tkinter as tk
 from tkinter import filedialog
+import sys
+import pathlib
 
 window = tk.Tk()
 window.withdraw()
 
 tk.messagebox.showinfo(title="Choose File", message="Please Choose a File")
 filepath = filedialog.askopenfilename()
+appPath = str(pathlib.Path(sys.argv[0]).parent)
 
 OptionsArray = []
 ItemArray = []
@@ -85,7 +88,8 @@ for items in OptionsArray:
    
 
 for item in newItems:
-    filename = str('OUTPUT/' + item[1][0] + '.csv').replace(" ","_")
+    filename = str(appPath + '\\OUTPUT\\' + item[1][0] + '.csv').replace(" ","_")
+    
     with open(filename,'w') as f:
         writer = csv.writer(f, lineterminator='\n')
         writer.writerows(item)
