@@ -1,3 +1,7 @@
+##Title: Options Builder
+##Description: Turn a list of items and attributes into every possible item
+##Author: Harry Calder 2022
+
 import csv
 import itertools
 import tkinter as tk
@@ -34,22 +38,15 @@ with open(filepath) as sourcefile:
     o = -1
 
     for row in csv_reader:
-
-
         if line_count == 0:
             line_count += 1
-            
         else:
             line_count += 1
-
             o += 1
-
             if row[1] != current_attribute or row[0] != current_item: 
                 a += 1
                 o = 0
                 current_attribute = row[1]
-                
-
                 if row[0] != current_item: 
                     i += 1
                     a = 0
