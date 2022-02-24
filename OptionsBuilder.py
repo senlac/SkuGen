@@ -65,7 +65,6 @@ with open(filepath) as sourcefile:
             OptionsArray[i][a].append(row[2])
             
 
-
 newItems = []
 i = 0
 
@@ -88,9 +87,10 @@ for items in OptionsArray:
    
 
 for item in newItems:
-    filename = str(appPath + '\\OUTPUT\\' + item[1][0] + '.csv').replace(" ","_")
+    fileName = str(item[1][0] + '.csv').replace(" ","_")
+    filePath = str(appPath + '\\OUTPUT\\' + fileName)
     
-    with open(filename,'w') as f:
+    with open(filePath,'w') as f:
         writer = csv.writer(f, lineterminator='\n')
         writer.writerows(item)
 tk.messagebox.showinfo(title="Job Complete", message="Check OUTPUT File")
