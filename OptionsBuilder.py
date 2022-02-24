@@ -3,6 +3,7 @@
 ##Author: Harry Calder 2022
 
 import csv
+from fileinput import filename
 import itertools
 import tkinter as tk
 from tkinter import filedialog
@@ -85,10 +86,12 @@ for items in OptionsArray:
     i += 1
 
    
+tk.messagebox.showinfo(title="Choose Folder", message="Please choose or create a folder to save results to")
+folderPath = filedialog.askdirectory()
 
 for item in newItems:
     fileName = str(item[1][0] + '.csv').replace(" ","_")
-    filePath = str(appPath + '\\OUTPUT\\' + fileName)
+    filePath = str(folderPath +"/"+ fileName)
     
     with open(filePath,'w') as f:
         writer = csv.writer(f, lineterminator='\n')
