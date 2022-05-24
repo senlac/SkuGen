@@ -96,4 +96,5 @@ for item in newItems:
     with open(filePath,'w') as f:
         writer = csv.writer(f, lineterminator='\n')
         writer.writerows(item)
+        
 tk.messagebox.showinfo(title="Job Complete", message="Selected Folder has been populated")
